@@ -9,13 +9,32 @@
     </head>
 
     <body>
-        <h3>Latest Mars news</h3>
-        <p>{{mars_data.news_title}}</p>
-        <p>{{mars_data.news_p}}</p>
-        <h3>Featured Mars Image</h3>
-        <img src={{mars_data.featured_image_url}} alt="">
-        <p>{{mars_data.featured_image_url}}</p>
-        <h3>Mars Facts</h3>
-        {{mars_data.facts_html.strip('\"')}}
+    
+        <div class="container">
+            <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+            <div class="col">
+              <div class="row">Latest Mars news</div>
+              <div class="row">{{mars_data.news_title}}</div>
+              <div class="row">{{mars_data.news_p}}</div>
+            </div>
+
+            <!-- Columns are always 50% wide, on mobile and desktop -->
+            <div class="row row-cols-2">
+              <div class="col-8">Featured Mars Image</div>
+              <div class="col">Current Weather on Mars</div>
+              <div class="col-8"><img src={{mars_data.featured_image_url}} class="col" alt=""></div>
+              <div class="col">{{mars_data.mars_weather}}
+                <div class="row">{{mars_data.facts_html.replace('border="1" ', '').replace('dataframe', 'table table-bordered')}}</div>
+              </div>
+            </div>
+            
+            <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+            <div class="row">
+              <div class="col-6 col-md-4">Mars Facts</div>
+              <div class="col-6 col-md-4">{{mars_data.facts_html.strip('\"')}}</div>
+            </div>
+        </div>
+            
+          
     </body>
 </html>
