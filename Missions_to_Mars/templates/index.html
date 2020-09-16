@@ -24,17 +24,10 @@
               <div class="col">Current Weather on Mars</div>
               <div class="col-8"><img src={{mars_data.featured_image_url}} class="col" alt=""></div>
               <div class="col">{{mars_data.mars_weather}}
-                <div class="row">{{mars_data.facts_html.replace('border="1" ', '').replace('dataframe', 'table table-bordered')}}</div>
+                <div class="row">Mars Facts</div>
+                <div class="row">{{mars_data.facts_html.replace('border="1" ', '').replace('dataframe', 'table table-bordered')|safe}}</div>
               </div>
             </div>
-            
-            <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-            <div class="row">
-              <div class="col-6 col-md-4">Mars Facts</div>
-              <div class="col-6 col-md-4">{{mars_data.facts_html.strip('\"')}}</div>
-            </div>
         </div>
-            
-          
     </body>
 </html>
