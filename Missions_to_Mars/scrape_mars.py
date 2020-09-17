@@ -80,7 +80,7 @@ def scrape():
         soup = bs(html, 'html.parser')
         img_full = soup.find('div', class_='downloads')
         targetimg = img_full.find_all('li')
-        hemisphere_image_urls.append({'title': titles[i], 'img_url': targetimg[1].find('a').get('href')})
+        hemisphere_image_urls.append({'title': titles[i], 'img_url': targetimg[0].find('a').get('href')})
         i = i + 1
     mars_data['hemisphere_image_urls'] = hemisphere_image_urls
 
